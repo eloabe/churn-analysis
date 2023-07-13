@@ -135,5 +135,4 @@ df[categoricas] = df[categoricas].astype('uint8')
 
 prob_class1 = model.predict_proba(df)[:, 1].item() * 100
 
-st.dataframe(df)
-st.write(f'O cliente tem {round( prob_class1, 3 )}\% de chance de cancelar o serviço.')
+st.write(f'O cliente tem aproximadamente {round( prob_class1, 2 )}\%  de chance de cancelar o serviço.')
