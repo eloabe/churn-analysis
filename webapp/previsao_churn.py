@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 
 ROOT_DIR = os.path.dirname(__file__)
-MODEL_DIR = ROOT_DIR + '\\finalized_model.sav'
+MODEL_DIR = ROOT_DIR + '/finalized_model.sav'
 
 model = pickle.load(open(MODEL_DIR, 'rb'))
 features = model.get_booster().feature_names
