@@ -8,7 +8,7 @@ import streamlit as st
 ROOT_DIR = os.getcwd() 
 MODEL_DIR = ROOT_DIR + '\\finalized_model.sav'
 
-model = pickle.load(open('finalized_model.sav', 'rb'))
+model = pickle.load(open(MODEL_DIR, 'rb'))
 features = model.get_booster().feature_names
 
 st.title('Previsão de Churn')
