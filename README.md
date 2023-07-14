@@ -3,6 +3,10 @@
 ## Tabela de conteúdos
 1. [Descrição do projeto](#descricao-projeto)
 2. [Demonstração de utilização do web app](#demonstracao-webapp)
+
+   2.1. [Etapa de cadastro](#cadastro)
+   
+   2.2. [Etapa de previsão](#previsao)
 3. [Descrição dos arquivos do projeto](#descricao-arquivos)
 
 
@@ -21,10 +25,12 @@ Também foi realizada uma aplicação que mostra um uso prático do modelo de Ma
 
 Disponível em: https://churn-analysis-eloabe.streamlit.app/</a>
 
-### Etapa de cadastro
+<a name="cadastro"></a>
+### 2.1. Etapa de cadastro
 ![Cadastro](https://i.ibb.co/kcMc0Bt/churn-cadastro.png)
 
-### Etapa de previsão
+<a name="previsao"></a>
+### 2.2. Etapa de previsão
 ![Previsão](https://i.ibb.co/qR6HBCp/churn-previsao.png)
 
 <a name="descricao-arquivos"></a>
