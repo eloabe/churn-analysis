@@ -12,7 +12,7 @@ model = pickle.load(open(MODEL_DIR, 'rb'))
 features = model.get_booster().feature_names
 
 st.title('Previsão de Churn')
-st.write('Esse aplicativo simula o cadastro de um novo cliente para realizar a previsão de Churn.')
+st.write('Esse aplicativo simula o cadastro de um novo cliente para realizar a previsão de Churn (cancelamento de serviço).')
 
 # Dados demográficos sobre o cliente
 st.subheader('Dados demográficos sobre o cliente')
