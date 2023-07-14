@@ -16,10 +16,10 @@ O objetivo do projeto foi praticar **análise exploratória e modelagem de dados
 
 Também foi realizada uma aplicação que mostra um uso prático do modelo de Machine Learning utilizado, que consiste na simulação do cadastro de um novo cliente na base de dados para prever qual sua probabilidade de realizar Churn, o que pode ser utilizado para tomar decisões como direcionamento de campanhas de Marketing, promoções, entre outras.
 
-Disponível em: https://churn-analysis-eloabe.streamlit.app/</a>
-
 <a name="demonstracao-webapp"></a>
 ## 2. Demonstração de utilização do web app
+
+Disponível em: https://churn-analysis-eloabe.streamlit.app/</a>
 
 ### Etapa de cadastro
 ![Cadastro](https://i.ibb.co/kcMc0Bt/churn-cadastro.png)
