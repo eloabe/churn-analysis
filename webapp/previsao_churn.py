@@ -14,8 +14,6 @@ features = model.get_booster().feature_names
 st.title('Previsão de Churn')
 st.write('Esse aplicativo simula o cadastro de um novo cliente para realizar a previsão de Churn.')
 
-st.subheader('Realizando o cadastro do cliente')
-
 # Dados demográficos sobre o cliente
 st.subheader('Dados demográficos sobre o cliente')
 gender = st.selectbox('Gênero', ['Masculino', 'Feminino'])
