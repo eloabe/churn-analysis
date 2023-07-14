@@ -12,58 +12,58 @@ model = pickle.load(open(MODEL_DIR, 'rb'))
 features = model.get_booster().feature_names
 
 st.title('Previsão de Churn')
-st.header('Esse aplicativo simula o cadastro de um novo cliente para realizar a previsão de Churn.')
+st.write('Esse aplicativo simula o cadastro de um novo cliente para realizar a previsão de Churn.')
 
-with st.sidebar:
+st.subheader('Realizando o cadastro do cliente')
 
-    # Dados demográficos sobre o cliente
-    st.subheader('Dados demográficos sobre o cliente')
-    gender = st.selectbox('Gênero', ['Masculino', 'Feminino'])
-    senior = st.checkbox('Idoso?')
-    partner = st.checkbox('Possui parceiro?')
-    dependents = st.checkbox('Possui dependentes?')
+# Dados demográficos sobre o cliente
+st.subheader('Dados demográficos sobre o cliente')
+gender = st.selectbox('Gênero', ['Masculino', 'Feminino'])
+senior = st.checkbox('Idoso?')
+partner = st.checkbox('Possui parceiro?')
+dependents = st.checkbox('Possui dependentes?')
 
-    # Serviços contratados
-    st.subheader('Serviços que o cliente possui')
-    phone_service = st.checkbox('Possui serviço de telefone?')
+# Serviços contratados
+st.subheader('Serviços que o cliente possui')
+phone_service = st.checkbox('Possui serviço de telefone?')
 
-    multiple_lines = st.selectbox('Mais de uma linha de telefone?', 
-                                ['Sim', 'Não', 'Não possui serviço de telefone'])
+multiple_lines = st.selectbox('Mais de uma linha de telefone?', 
+                            ['Sim', 'Não', 'Não possui serviço de telefone'])
 
-    internet_service = st.selectbox('Tipo de internet',
-                                    ['Fibra ótica', 'DSL', 'Não possui'])
+internet_service = st.selectbox('Tipo de internet',
+                                ['Fibra ótica', 'DSL', 'Não possui'])
 
-    online_security = st.selectbox('Segurança online',
+online_security = st.selectbox('Segurança online',
+                            ['Sim', 'Não', 'Não possui internet'])
+
+online_backup = st.selectbox('Backup online',
+                            ['Sim', 'Não', 'Não possui internet'])
+
+device_protection = st.selectbox('Proteção de dispositivo',
                                 ['Sim', 'Não', 'Não possui internet'])
 
-    online_backup = st.selectbox('Backup online',
+tech_support = st.selectbox('Suporte de informática',
+                            ['Sim', 'Não', 'Não possui internet'])
+
+streaming_tv = st.selectbox('Streaming de TV',
+                            ['Sim', 'Não', 'Não possui internet'])
+
+streaming_movies = st.selectbox('Streaming de filmes',
                                 ['Sim', 'Não', 'Não possui internet'])
 
-    device_protection = st.selectbox('Proteção de dispositivo',
-                                    ['Sim', 'Não', 'Não possui internet'])
+# Conta do cliente
+st.subheader('Dados sobre a conta do cliente')
+tenure = st.number_input('Cliente há quantos meses?', 0, 100)
 
-    tech_support = st.selectbox('Suporte de informática',
-                                ['Sim', 'Não', 'Não possui internet'])
+contract = st.selectbox('Tipo de contrato',
+                        ['Mês a mês', 'Um ano', 'Dois anos'])
 
-    streaming_tv = st.selectbox('Streaming de TV',
-                                ['Sim', 'Não', 'Não possui internet'])
+payment = st.selectbox('Tipo de pagamento',
+                        ['Cheque eletrônico', 'Cheque por e-mail',
+                        'Cartão de crédito', 'Transferência bancária'])
 
-    streaming_movies = st.selectbox('Streaming de filmes',
-                                    ['Sim', 'Não', 'Não possui internet'])
-
-    # Conta do cliente
-    st.subheader('Dados sobre a conta do cliente')
-    tenure = st.number_input('Cliente há quantos meses?', 0, 100)
-
-    contract = st.selectbox('Tipo de contrato',
-                            ['Mês a mês', 'Um ano', 'Dois anos'])
-
-    payment = st.selectbox('Tipo de pagamento',
-                            ['Cheque eletrônico', 'Cheque por e-mail',
-                            'Cartão de crédito', 'Transferência bancária'])
-
-    paperless = st.checkbox('Pagamento on-line?')
-    monthly_charges = st.slider('Quanto paga por mês?', 0.0, 150.0)
+paperless = st.checkbox('Pagamento on-line?')
+monthly_charges = st.slider('Quanto paga por mês?', 0.0, 150.0)
 
 # Dataframe vazio com as mesmas colunas da base original
 df = pd.DataFrame(columns = features, index = [])
@@ -135,4 +135,5 @@ df[categoricas] = df[categoricas].astype('uint8')
 
 prob_class1 = model.predict_proba(df)[:, 1].item() * 100
 
-st.write(f'O cliente tem aproximadamente {round( prob_class1, 2 )}\%  de chance de cancelar o serviço.')
+if st.button('Realizar previsão'):
+    st.write(f'O cliente tem aproximadamente {round( prob_class1, 2 )}\%  de chance de cancelar o serviço.')
